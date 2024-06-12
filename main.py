@@ -1,6 +1,9 @@
 from lib.Status import create_Presence
+from win32gui import GetWindowText, GetForegroundWindow
 import time
-create_Presence("Test")
 
 while True:
-    time.sleep(60)
+    title = GetWindowText(GetForegroundWindow())
+    if(title):
+        create_Presence(title)
+    time.sleep(5)
